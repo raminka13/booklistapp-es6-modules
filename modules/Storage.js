@@ -1,36 +1,30 @@
-import {UI} from './UI.js';
-import {Book} from './Book.js';
-
-// Store: Handle Local Storage
-class Storage {
-    static getBooks() {
-        let books;
-        if (localStorage.getItem('books') === null) {
-            books = [];
-        } else {
-            books = JSON.parse(localStorage.getItem('books'));
-        }
-
-        return books;
+export default class Storage {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
     }
 
-    static addBook(book) {
-        const books = Storage.getBooks();
-        books.push(book);
-        localStorage.setItem('books', JSON.stringify(books));
-    }
+    return books;
+  }
 
-    static removeBook(title) {
-        const books = Storage.getBooks();
+  static addBook(book) {
+    const books = Storage.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
 
-        books.forEach((book, index) => {
-            if (book.title === title) {
-                books.splice(index, 1);
-            }
-        });
+  static removeBook(title) {
+    const books = Storage.getBooks();
 
-        localStorage.setItem('books', JSON.stringify(books));
-    }
+    books.forEach((book, index) => {
+      if (book.title === title) {
+        books.splice(index, 1);
+      }
+    });
+
+    localStorage.setItem('books', JSON.stringify(books));
+  }
 }
-
-export {Storage};
