@@ -1,10 +1,7 @@
-import { UI } from './modules/UI.js';
-import { Storage } from './modules/Storage.js';
-import { Book } from './modules/Book.js';
-import { luxon } from './modules/luxon.min.js';
-
+import UI from './modules/UI.js';
+import Storage from './modules/Storage.js';
+import Book from './modules/Book.js';
 // Event to Display Book
-
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 // Event to Add Book
 document.querySelector('#book-form').addEventListener('submit', (e) => {
@@ -34,7 +31,6 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 });
 
 // Event to Remove a Book
-
 document.querySelector('#book-list').addEventListener('click', (e) => {
   // Remove book from UI
   UI.deleteBook(e.target);
@@ -71,8 +67,3 @@ document.getElementById('contact-btn').addEventListener('click', () => {
   document.getElementById('add-btn').classList.remove('active');
   document.getElementById('list-btn').classList.remove('active');
 });
-
-// Date print
-const date = document.getElementById('my-date');
-const { DateTime } = luxon;
-date.textContent = DateTime.now().toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY);

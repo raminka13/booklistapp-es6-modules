@@ -1,9 +1,10 @@
-// import { Book } from './Book.js';
-import { Storage } from './Storage.js';
-
+// import Book from './Book.js';
+import Storage from './Storage.js';
+import AddDate from './date.js';
 // UI class: Display books
 export default class UI {
   static displayBooks() {
+    AddDate.addDate();
     const books = Storage.getBooks();
 
     books.forEach((book) => UI.addbooktoList(book));
@@ -41,5 +42,3 @@ export default class UI {
     document.getElementById('author').value = '';
   }
 }
-
-export { UI };

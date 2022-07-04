@@ -1,8 +1,4 @@
-import { UI } from './UI.js';
-import { Book } from './Book.js';
-
-// Store: Handle Local Storage
-export class Storage {
+export default class Storage {
   static getBooks() {
     let books;
     if (localStorage.getItem('books') === null) {
