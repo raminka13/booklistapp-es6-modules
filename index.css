@@ -29,6 +29,14 @@ body {
   backdrop-filter: blur(20px);
 }
 
+#date {
+  padding: 0;
+  margin: 0 3em 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  align-self: flex-end;
+}
+
 #navbar {
   display: flex;
   justify-content: center;
@@ -146,7 +154,7 @@ div#book-list {
 }
 
 div#book-list .book:nth-child(even) {
-  background-color: #f6b48a;
+  background-color: var(--color-secondary);
 }
 
 div.book {
@@ -155,7 +163,7 @@ div.book {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #fefaf7;
+  background-color: var(--color-third);
   font-size: 14px;
 }
 
@@ -208,7 +216,7 @@ div.book {
   cursor: pointer;
   padding: 0.25em 0.5em;
   margin: 1em;
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   color: #eee;
   font-size: 1em;
   border-radius: 6px;
