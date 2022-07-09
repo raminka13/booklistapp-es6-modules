@@ -41,4 +41,22 @@ export default class UI {
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
   }
+
+  static showAlert(message, className) {
+    const add = document.createElement('div');
+    const remove = document.createElement('div');
+    add.className = `alert alert-${className}`;
+    add.appendChild(document.createTextNode(message));
+    remove.className = `alert alert-${className}`;
+    remove.appendChild(document.createTextNode(message));
+    const contAdd = document.getElementById('add');
+    const contRem = document.getElementById('list');
+    const bookForm = document.getElementById('book-form');
+    const bookList = document.getElementById('book-list');
+    contAdd.insertBefore(add, bookForm);
+    contRem.insertBefore(remove, bookList);
+
+    const alerts = Array.from(document.querySelectorAll('.alert'));
+    alerts.forEach((alert) => setTimeout(() => alert.remove(), 1000));
+  }
 }

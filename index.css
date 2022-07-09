@@ -29,14 +29,36 @@ body {
   backdrop-filter: blur(20px);
 }
 
+.alert {
+  position: fixed;
+  height: 36%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  background-blend-mode: multiply;
+}
+
+.alert-danger {
+  background-color: #731010e0;
+  color: #fff;
+}
+
+.alert-success {
+  background-color: #24a379e0;
+  color: #fff;
+}
+
 #date {
   padding: 0;
-  margin: 0 3em 0 0;
+  margin: 2em;
   font-size: 16px;
-  font-weight: 700;
-  position: absolute;
-  top: 100px;
-  right: 100px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2px;
 }
 
 #navbar {

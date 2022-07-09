@@ -1,6 +1,7 @@
 import UI from './modules/UI.js';
 import Storage from './modules/Storage.js';
 import Book from './modules/Book.js';
+import AddDate from './modules/date.js';
 // Event to Display Book
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 // Event to Add Book
@@ -14,13 +15,14 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
   // Validation
   if (title === '' || author === '') {
-    alert('Please fill in all fields');
+    UI.showAlert('Please fill in all fields', 'danger');
   } else {
     // Start a new Book
     const book = new Book(title, author);
 
     // Add Book to UI
     UI.addbooktoList(book);
+    UI.showAlert('Book Added', 'success');
 
     // Add Book to LocalStorage
     Storage.addBook(book);
@@ -34,6 +36,7 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 document.querySelector('#book-list').addEventListener('click', (e) => {
   // Remove book from UI
   UI.deleteBook(e.target);
+  UI.showAlert('Book Deleted', 'danger');
 
   // Remove book from Storage
   Storage.removeBook(e.target.parentElement.firstChild.textContent);
@@ -48,6 +51,7 @@ document.getElementById('list-btn').addEventListener('click', () => {
   document.getElementById('list-btn').classList.add('active');
   document.getElementById('add-btn').classList.remove('active');
   document.getElementById('contact-btn').classList.remove('active');
+  AddDate.addDate();
 });
 
 document.getElementById('add-btn').addEventListener('click', () => {
@@ -57,6 +61,7 @@ document.getElementById('add-btn').addEventListener('click', () => {
   document.getElementById('add-btn').classList.add('active');
   document.getElementById('list-btn').classList.remove('active');
   document.getElementById('contact-btn').classList.remove('active');
+  AddDate.addDate();
 });
 
 document.getElementById('contact-btn').addEventListener('click', () => {
@@ -66,4 +71,5 @@ document.getElementById('contact-btn').addEventListener('click', () => {
   document.getElementById('contact-btn').classList.add('active');
   document.getElementById('add-btn').classList.remove('active');
   document.getElementById('list-btn').classList.remove('active');
+  AddDate.addDate();
 });
